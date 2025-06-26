@@ -1,15 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://byt1wyn1q2nx0"]
+[gd_scene load_steps=8 format=3 uid="uid://byt1wyn1q2nx0"]
 
 [ext_resource type="PackedScene" uid="uid://bvxxft3h8sdjg" path="res://scenes/character_body_2d.tscn" id="1_xtk1a"]
-[ext_resource type="PackedScene" uid="uid://c7b6i5nyy6w15" path="res://scenes/test_platform.tscn" id="2_gvs2e"]
+[ext_resource type="Texture2D" uid="uid://cvhjluahbnfni" path="res://assets/sidewalk basic.png" id="3_gfrad"]
+[ext_resource type="Texture2D" uid="uid://cj1twaxmlvqna" path="res://assets/Ground.png" id="3_jsdk1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8g67"]
+texture = ExtResource("3_gfrad")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -7, 16, -7, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_d3tow"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_p8g67")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b27d"]
+texture = ExtResource("3_jsdk1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_8mx6c"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_0b27d")
 
 [node name="level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_xtk1a")]
-position = Vector2(11, -4)
+position = Vector2(0, 13)
 
-[node name="test platform" parent="." instance=ExtResource("2_gvs2e")]
-position = Vector2(-213, 38)
+[node name="Road" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_d3tow")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 262140, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196633, 0, 0)
 
-[node name="Player2" parent="." instance=ExtResource("1_xtk1a")]
-position = Vector2(-195, -4)
+[node name="BelowRoad" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8mx6c")
+format = 2
+layer_0/tile_data = PackedInt32Array(327676, 0, 0, 393212, 0, 0, 458748, 0, 0, 524284, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 458777, 0, 0, 393241, 0, 0, 327705, 0, 0, 262169, 0, 0, 262168, 0, 0, 262167, 0, 0, 327702, 0, 0, 327701, 0, 0, 327700, 0, 0, 327699, 0, 0, 262162, 0, 0, 262161, 0, 0, 262160, 0, 0, 262159, 0, 0, 262158, 0, 0, 262157, 0, 0, 262156, 0, 0, 262155, 0, 0, 262154, 0, 0, 262153, 0, 0, 262152, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 262148, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 262144, 0, 0, 327679, 0, 0, 327678, 0, 0, 327677, 0, 0, 393213, 0, 0, 458749, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 393215, 0, 0, 393214, 0, 0, 458750, 0, 0, 458751, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 393222, 0, 0, 393221, 0, 0, 327685, 0, 0, 458758, 0, 0, 458759, 0, 0, 393223, 0, 0, 393224, 0, 0, 327688, 0, 0, 327687, 0, 0, 327686, 0, 0, 393220, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 458762, 0, 0, 458761, 0, 0, 458760, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 458775, 0, 0, 458774, 0, 0, 458773, 0, 0, 458776, 0, 0, 327703, 0, 0, 327704, 0, 0, 262166, 0, 0, 262165, 0, 0, 262164, 0, 0, 262163, 0, 0, 327696, 0, 0, 327695, 0, 0, 327694, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327689, 0, 0, 327697, 0, 0, 327698, 0, 0, -196613, 0, 0, -131077, 0, 0, -65541, 0, 0, -5, 0, 0, 65531, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 393211, 0, 0, 458747, 0, 0, 524283, 0, 0, 589819, 0, 0, -196614, 0, 0, -131078, 0, 0, -65542, 0, 0, -6, 0, 0, 65530, 0, 0, 131066, 0, 0, 196602, 0, 0, 262138, 0, 0, 327674, 0, 0, 393210, 0, 0, 458746, 0, 0, 524282, 0, 0, 589818, 0, 0)
