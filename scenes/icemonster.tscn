@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1eh7iqpkxr5e"]
+
+[ext_resource type="Script" path="res://scripts/icemonster.gd" id="1_kkddn"]
+[ext_resource type="Texture2D" uid="uid://bnfcyk0ldr4d0" path="res://assets/ice monster basic.png" id="1_p2prc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8pk3"]
+size = Vector2(53, 56)
+
+[node name="icemonster" type="CharacterBody2D"]
+script = ExtResource("1_kkddn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(33, 33)
+scale = Vector2(2, 2)
+texture = ExtResource("1_p2prc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(33.5, 35)
+shape = SubResource("RectangleShape2D_e8pk3")

@@ -8,6 +8,7 @@ size = Vector2(35, 59)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(13, 11)
+collision_layer = 3
 script = ExtResource("1_0v6c6")
 metadata/_edit_group_ = true
 
@@ -21,4 +22,5 @@ position = Vector2(12.5, 15.5)
 shape = SubResource("RectangleShape2D_klyuo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -150)
 zoom = Vector2(2, 2)

@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd0ma38mbcsnw"]
+
+[ext_resource type="Script" path="res://scenes/ice_monster.gd" id="1_8fhu2"]
+[ext_resource type="Texture2D" uid="uid://cfpwbhvv5a05d" path="res://assets/spritesheet ice monster basic.png" id="2_ofg7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3twvb"]
+atlas = ExtResource("2_ofg7t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smk04"]
+atlas = ExtResource("2_ofg7t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye7lf"]
+atlas = ExtResource("2_ofg7t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eogq8"]
+atlas = ExtResource("2_ofg7t")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ae6vu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3twvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smk04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye7lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eogq8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaseo"]
+size = Vector2(53.75, 56)
+
+[node name="ice_monster" type="CharacterBody2D"]
+script = ExtResource("1_8fhu2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 20)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ae6vu")
+animation = &"idle"
+frame_progress = 0.310799
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_xaseo")
+
+[node name="StateTimer" type="Timer" parent="."]
+
+[node name="LookTimer" type="Timer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 55)
+
+[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
+[connection signal="timeout" from="LookTimer" to="." method="_on_look_timer_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhjluahbnfni"
-path="res://.godot/imported/sidewalk basic.png-a52ae9cd6f563c0d304b7a82434485b2.ctex"
+uid="uid://cfpwbhvv5a05d"
+path="res://.godot/imported/spritesheet ice monster basic.png-d7ff5028aa077d6efc365893cf8c3194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sidewalk basic.png"
-dest_files=["res://.godot/imported/sidewalk basic.png-a52ae9cd6f563c0d304b7a82434485b2.ctex"]
+source_file="res://assets/spritesheet ice monster basic.png"
+dest_files=["res://.godot/imported/spritesheet ice monster basic.png-d7ff5028aa077d6efc365893cf8c3194.ctex"]
 
 [params]
 
