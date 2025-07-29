@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bbhk5wshs5fgv" path="res://assets/Sidewalk2.png" id="2_v6r32"]
 [ext_resource type="Texture2D" uid="uid://cj1twaxmlvqna" path="res://assets/Ground.png" id="3_jsdk1"]
 [ext_resource type="Texture2D" uid="uid://dndwgynvg0pk1" path="res://assets/sidewalk basic (1).png" id="4_1i625"]
-[ext_resource type="PackedScene" uid="uid://d1eh7iqpkxr5e" path="res://scenes/icemonster.tscn" id="5_0iiad"]
+[ext_resource type="PackedScene" uid="uid://dnc80vk23kytu" path="res://scenes/portal.tscn" id="5_gi0uy"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wywmq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3isk"]
 texture = ExtResource("2_v6r32")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -15,9 +15,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_jxc8j"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_wywmq")
+sources/1 = SubResource("TileSetAtlasSource_n3isk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b27d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5o8ny"]
 texture = ExtResource("3_jsdk1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -26,9 +26,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_8mx6c"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_0b27d")
+sources/0 = SubResource("TileSetAtlasSource_5o8ny")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iv1im"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnet3"]
 texture = ExtResource("4_1i625")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -37,7 +37,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_1fu61"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_iv1im")
+sources/1 = SubResource("TileSetAtlasSource_rnet3")
 
 [node name="level 1" type="Node2D"]
 position = Vector2(45, 21)
@@ -60,5 +60,6 @@ tile_set = SubResource("TileSet_1fu61")
 format = 2
 layer_0/tile_data = PackedInt32Array(196602, 1, 0, 131134, 1, 0, -262082, 1, 0)
 
-[node name="ice_monster" parent="." instance=ExtResource("5_0iiad")]
-position = Vector2(1582, 67)
+[node name="Portal" parent="." instance=ExtResource("5_gi0uy")]
+position = Vector2(2815, 65)
+next_level_name = "level_2"
