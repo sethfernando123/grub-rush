@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://byt1wyn1q2nx0"]
+[gd_scene load_steps=12 format=3 uid="uid://byt1wyn1q2nx0"]
 
 [ext_resource type="PackedScene" uid="uid://bvxxft3h8sdjg" path="res://scenes/player.tscn" id="1_xtk1a"]
 [ext_resource type="Texture2D" uid="uid://bbhk5wshs5fgv" path="res://assets/Sidewalk2.png" id="2_v6r32"]
 [ext_resource type="Texture2D" uid="uid://cj1twaxmlvqna" path="res://assets/Ground.png" id="3_jsdk1"]
 [ext_resource type="Texture2D" uid="uid://dndwgynvg0pk1" path="res://assets/sidewalk basic (1).png" id="4_1i625"]
+[ext_resource type="PackedScene" uid="uid://d1eh7iqpkxr5e" path="res://scenes/icemonster.tscn" id="5_0iiad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wywmq"]
 texture = ExtResource("2_v6r32")
@@ -39,9 +40,10 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_iv1im")
 
 [node name="level 1" type="Node2D"]
+position = Vector2(45, 21)
 
 [node name="Player" parent="." instance=ExtResource("1_xtk1a")]
-position = Vector2(9, 79)
+position = Vector2(-56, 72)
 
 [node name="Sidewalk" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jxc8j")
@@ -57,3 +59,6 @@ layer_0/tile_data = PackedInt32Array(327660, 0, 0, 327661, 0, 0, 327662, 0, 0, 3
 tile_set = SubResource("TileSet_1fu61")
 format = 2
 layer_0/tile_data = PackedInt32Array(196602, 1, 0, 131134, 1, 0, -262082, 1, 0)
+
+[node name="ice_monster" parent="." instance=ExtResource("5_0iiad")]
+position = Vector2(1582, 67)

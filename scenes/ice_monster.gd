@@ -1,56 +1,24 @@
 extends CharacterBody2D
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var look_timer = $LookTimer
-@onready var ray_cast_2d = $RayCast2D
-@onready var state_timer = $StateTimer
-
-enum States{WALKING, LOOKING}
-
-const SPEED = 300.0
-
-var currentState: States
-var direction = 1
-func _ready() -> void:
-	currentState = States.LOOKING
-	state_timer.wait_time = randi_range(2,3)
-	state_timer.start()
-	start_looking()
-
-func start_looking():
-	velocity.x = 0
-	animated_sprite_2d.stop()
-	
-	look_timer.start()
+var SPEED = 30.0
+var player = null
+var player_chase = false
 
 func _physics_process(delta):
+	if player_chase:
+		position += (player.position - position)/SPEED
+		move_and_collide(Vector2(0,0))
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
-	if not ray_cast_2d.is_colliding() and currentState == States.WALKING:
-		change_look_direction()
-		
-	match currentState:
-		States.WALKING: do_walk(delta)
 	move_and_slide()
 
-func do_walk(delta):
-	velocity.x = SPEED * direction
-	
-	animated_sprite_2d.play("idle")
-func _on_state_timer_timeout():
-	match currentState:
-		States.WALKING:
-			currentState = States.LOOKING
-			start_looking
-		States.LOOKING:
-			currentState = States.WALKING
-			look_timer.stop()
 
-func _on_look_timer_timeout():
-	change_look_direction()
+func _on_detection_area_body_entered(body):
+	player = body
+	player_chase = true
+	print("entered")
 
-func change_look_direction():
-	direction *= -1
-	animated_sprite_2d.scale.x = direction
-	ray_cast_2d.position.x = direction * 3
+func _on_detection_area_body_exited(body):
+	player = null
+	player_chase = false
+	print("exited")
